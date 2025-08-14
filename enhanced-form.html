@@ -22,6 +22,16 @@
       border-radius: 8px;
       max-width: 500px;
     }
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+    }
     label {
       display: block;
       margin-top: 1rem;
@@ -49,32 +59,99 @@
     button:hover {
       background-color: #a77045;
     }
+    .instructions {
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: #fff7f5;
+      border-left: 4px solid #8b5e34;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
   <h1>Tell Us Something Real: A Little Form With Big Purpose</h1>
+
+  <!-- Instruction list -->
+  <div class="instructions">
+    <p>Before filling out the form, please:</p>
+    <ul>
+      <li>Provide your real name and email</li>
+      <li>Use a valid date of birth</li>
+      <li>Choose your country from the list</li>
+      <li>Share an honest thought in the feedback</li>
+    </ul>
+  </div>
+
+  <!-- Media -->
+  <img src="https://via.placeholder.com/500x150.png?text=Share+Your+Story" alt="Share your story illustration" />
+
   <form action="/submit" method="post">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required placeholder="Your full name" minlength="2" />
+    <fieldset>
+      <legend>Personal Info</legend>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" minlength="2" autocomplete="name" />
 
-    <label for="dob">Date of Birth</label>
-    <input type="date" id="dob" name="dob" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
 
-    <label for="country">Country</label>
-    <select id="country" name="country" required>
-      <option value="" disabled selected>Select your country</option>
-      <option value="KE">Kenya</option>
-      <option value="UG">Uganda</option>
-      <option value="TZ">Tanzania</option>
-    </select>
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required autocomplete="bday" />
 
-    <label for="feedback">What’s one thing you wish people knew about you?</label>
-    <textarea id="feedback" name="feedback" rows="4" required minlength="10" placeholder="Share a thought, a feeling, or a small truth..."></textarea>
+      <label for="country">Country</label>
+      <select id="country" name="country" required>
+        <option value="" disabled selected>Select your country</option>
+        <option value="KE">Kenya</option>
+        <option value="UG">Uganda</option>
+        <option value="TZ">Tanzania</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your Thoughts</legend>
+      <label for="feedback">What’s one thing you wish people knew about you?</label>
+      <textarea id="feedback" name="feedback" rows="4" required minlength="10" placeholder="Share a thought, a feeling, or a small truth..."></textarea>
+    </fieldset>
 
     <button type="submit">Send It In</button>
   </form>
+
+  <!-- Sample table -->
+  <table>
+    <caption>Sample Submission Summary</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Feedback Snippet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jane Doe</td>
+        <td>Kenya</td>
+        <td>Passionate about community...</td>
+      </tr>
+      <tr>
+        <td>John Smith</td>
+        <td>Uganda</td>
+        <td>Loves sharing small truths...</td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
